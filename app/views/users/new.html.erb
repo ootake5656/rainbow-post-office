@@ -1,0 +1,34 @@
+<h1>ユーザー登録</h1>
+
+<%= form_with model: @user do |form| %>
+  <% if @user.errors.any? %>
+    <div>
+      <p>入力内容を確認してください</p>
+
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :email, "メールアドレス" %>
+    <%= form.email_field :email, autocomplete: "email", required: true %>
+  </div>
+
+  <div>
+    <%= form.label :password, "パスワード" %>
+    <%= form.password_field :password, autocomplete: "new-password", required: true %>
+  </div>
+
+  <div>
+    <%= form.label :password_confirmation, "パスワード確認" %>
+    <%= form.password_field :password_confirmation,
+                            autocomplete: "new-password",
+                            required: true %>
+  </div>
+
+  <%= form.submit "登録する" %>
+<% end %>
