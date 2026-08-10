@@ -71,4 +71,23 @@ class UserTest < ActiveSupport::TestCase
   assert_not user.valid?
   assert user.errors.of_kind?(:password, :blank)
   end
+
+  test "duplicate email error is displayed in Japanese" do
+    User.create!(
+      email: "japanese-error@example.com",
+      password: "password",
+      password_confirmation: "password"
+    )
+
+    duplicate_user = User.new(
+      email: "japanese-error@example.com",
+      password: "password",
+      password_confirmation: "password"
+    )
+
+    duplicate_user.valid? # 重複エラーを作る
+
+    assert_includes duplicate_user.errors.full_messages,
+                    "メールアドレスはすでに登録されています"
+  end
 end
