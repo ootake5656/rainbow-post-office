@@ -13,3 +13,96 @@
  *= require_tree .
  *= require_self
  */
+body {
+  margin: 0;
+  background-color: #eaf4f8;
+  color: #3f352c;
+}
+
+.top-page {
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+
+  /* スマートフォン用の背景画像 */
+  background-image: url("top_background_mobile.png");
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.top-page__content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 40px 24px 32px;
+}
+
+.top-page__title {
+  margin: 0 0 24px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.top-page__message {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.top-page__message p {
+  margin: 0 0 16px;
+}
+
+.top-page__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.top-page__button {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 14px 20px;
+  border: 1px solid #ef8f99;
+  border-radius: 999px;
+  background-color: #ef8f99;
+  color: #ffffff;
+  font: inherit;
+  text-align: center;
+}
+
+.top-page__button--link {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {         /* pc用画像。画面幅が768px以上の場合だけこの中のCSSを使う　*/
+  .top-page {
+    max-width: none;
+    background-image: url("top_background_desktop.png");
+    background-position: center;
+  }
+
+  .top-page__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px;
+  }
+
+  .top-page__title {
+    text-align: left;
+  }
+
+  .top-page__message {
+    max-width: 480px;
+    font-size: 16px;
+  }
+
+  .top-page__actions {
+    width: 360px;
+  }
+}
