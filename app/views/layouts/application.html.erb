@@ -18,6 +18,10 @@
   </head>
 
   <body>
+    <% if flash[:alert] %>
+      <p class="flash-message flash-message--alert"><%= flash[:alert] %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

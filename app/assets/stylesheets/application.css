@@ -266,3 +266,59 @@ body {
     margin-top: 40px;
   }
 }
+
+/* ログイン画面 */
+.authentication-page {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: 48px 24px;
+  background-color: #fffaf2;
+}
+
+.authentication-page__content {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.authentication-page__form {
+  display: grid;
+  gap: 20px;
+}
+
+.authentication-page__form div {
+  display: grid;
+  gap: 6px;
+}
+
+.authentication-page__form input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+}
+
+.flash-message--alert {
+  color: #b8404f;
+}
+
+.flash-message {
+  margin: 0;
+  padding: 12px 24px;
+  background-color: #fff3f4;
+  text-align: center;
+}
+
+/* MVPの簡易マイページ */
+.mypage {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: 48px 24px;
+  background-color: #fffaf2;
+}

@@ -32,14 +32,14 @@
     </div>
 
     <div class="top-page__actions">
-      <button type="button" class="top-page__button">      <%# __はCSSの命名ルール %>
+      <button type="button" class="top-page__button">
         あの子に手紙を書く
       </button>
 
-      <% unless logged_in? %>                <%# ログインしていなかったらボタンを表示　%>
-        <button type="button" class="top-page__button">
-          新規登録/ログイン
-        </button>
+      <% unless logged_in? %>
+        <%= link_to "新規登録/ログイン",
+                    login_path,
+                    class: "top-page__button top-page__button--link" %>
       <% end %>
     </div>
   </section>
