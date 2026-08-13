@@ -1,0 +1,51 @@
+<main class="pet-registration">
+  <%= link_to "‹",
+              root_path,
+              class: "pet-registration__back",
+              aria: { label: "トップページに戻る" } %>
+
+  <div class="pet-registration__progress" aria-label="登録の進行状況">
+    <span class="pet-registration__progress-dot pet-registration__progress-dot--active"></span>
+    <span class="pet-registration__progress-dot"></span>
+    <span class="pet-registration__progress-dot"></span>
+    <span class="pet-registration__progress-dot"></span>
+    <span class="pet-registration__progress-dot"></span>
+  </div>
+
+  <section class="pet-registration__content">
+    <h1 class="pet-registration__title">
+      あの子のことを、<br>
+      何と呼んでいましたか？
+    </h1>
+
+    <p class="pet-registration__example">
+      例：「こむぎ」と入力すると「こむぎちゃん」と<br>
+      手紙で呼ばせていただきます
+    </p>
+
+    <%= form_with model: @pet, class: "pet-registration__form" do |form| %>
+      <% if @pet.errors.any? %>
+        <div class="pet-registration__errors">
+          <p>入力内容を確認してください</p>
+
+          <ul>
+            <% @pet.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="pet-registration__name-field">
+        <%= form.text_field :name,
+                            placeholder: "名前を入力",
+                            required: true,
+                            class: "pet-registration__input" %>
+
+        <span class="pet-registration__honorific">ちゃん</span>
+      </div>
+
+      <%= form.submit "つぎへ", class: "pet-registration__submit" %>
+    <% end %>
+  </section>
+</main>
