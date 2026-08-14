@@ -703,3 +703,59 @@ body {
     margin-left: auto;
   }
 }
+
+/* 手紙の配達演出画面 */
+.letter-delivery {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  overflow: hidden;
+  background-image: url("letter_delivery_background_mobile.png");
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #3f3028;
+}
+
+.letter-delivery__content {
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 72px 28px 32px;
+  text-align: center;
+}
+
+.letter-delivery__title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.7;
+}
+
+.letter-delivery__message {
+  margin: 28px 0 0;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.letter-delivery__notice {
+  margin: 18px 0 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+@media (min-width: 768px) {
+  .letter-delivery {
+    max-width: none;
+    background-image: url("letter_delivery_background_desktop.png");
+    background-position: center;
+  }
+
+  .letter-delivery__content {
+    width: min(42%, 540px);
+    margin-left: 52%;
+    padding: 100px 32px 40px;
+  }
+}

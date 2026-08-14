@@ -45,10 +45,18 @@ class LettersController < ApplicationController
       @letter.create_reply!(content: ManagerReplyTemplate.render(pet: @pet))
     end
 
-    redirect_to root_path
+    redirect_to delivery_letters_path
   rescue ActiveRecord::RecordInvalid
     flash.now[:alert] = "手紙を保存できませんでした"
-    render :confirm, status: :unprocessable_entity
+    render :confirmation, status: :unprocessable_entity
+  end
+
+  def delivery
+    @pet = current_user.pets.first
+    return redirect_to new_pet_path, alert: "先にペット名を登録してください" unless @pet
+
+    @letter = @pet.letters.where(status: "sent").order(sent_at: :desc).first
+    redirect_to root_path, alert: "配達する手紙がありません" unless @letter
   end
 
   def save_draft

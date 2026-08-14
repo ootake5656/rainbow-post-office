@@ -1,0 +1,21 @@
+<main class="letter-delivery"
+      data-controller="delivery-redirect"                   <%# delivery_redirect_controller.jsを起動 %>
+      data-delivery-redirect-url-value="<%= root_path %>"   <%# トップページに移動させる %>
+      data-delivery-redirect-delay-value="5000">            <%# 移動するまでの時間5秒 %>
+
+  <section class="letter-delivery__content">
+    <h1 class="letter-delivery__title">
+      手紙は無事<br>
+      <%= @pet.name %>ちゃんに届きました
+    </h1>
+
+    <p class="letter-delivery__message">
+      お返事があるまで<br>
+      もう少しお待ちください
+    </p>
+
+    <p class="letter-delivery__notice">
+      アプリを閉じても大丈夫です
+    </p>
+  </section>
+</main>

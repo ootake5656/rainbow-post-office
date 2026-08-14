@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       post :confirm
       get :confirmation
       post :send_letter
+      get :delivery
       patch :draft, action: :save_draft
       delete :draft, action: :destroy_draft
     end
