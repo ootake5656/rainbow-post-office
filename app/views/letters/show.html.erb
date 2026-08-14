@@ -9,6 +9,16 @@
       <%= simple_format(@letter.content) %>
     </article>
 
-    <%= link_to "手紙一覧へ戻る", letters_path, class: "sent-letter__back-link" %>
+    <% if @reply %>
+      <%= link_to "対応する返事を読む",
+                  reply_path(@reply),
+                  class: "sent-letter__reply-link" %>
+    <% else %>
+      <p class="sent-letter__waiting">管理人からの返事を待っています</p>
+    <% end %>
+
+    <%= link_to "手紙一覧へ戻る",
+                letters_path,
+                class: "sent-letter__back-link sent-letter__back-link--secondary" %>
   </section>
 </main>

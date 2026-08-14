@@ -11,8 +11,12 @@
       <%= simple_format(@reply.content) %>
     </article>
 
-    <%= link_to "トップページへ戻る",
-                root_path,
+    <%= link_to "この返事に対応する手紙を読む",
+                letter_path(@letter),
                 class: "reply-letter__home-link" %>
+
+    <%= link_to "手紙一覧へ戻る",
+                letters_path,
+                class: "reply-letter__list-link" %>
   </section>
 </main>

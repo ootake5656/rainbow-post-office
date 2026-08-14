@@ -95,6 +95,21 @@ body {
   text-decoration: none;
 }
 
+.reply-letter__list-link {
+  display: block;
+  box-sizing: border-box;
+  width: min(100%, 360px);
+  margin: 14px auto 0;
+  padding: 13px 20px;
+  border: 1px solid #b98d75;
+  border-radius: 999px;
+  background-color: rgba(255, 252, 245, 0.92);
+  color: #654f42;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+
 @media (min-width: 768px) {
   .reply-letter {
     max-width: none;
@@ -997,7 +1012,8 @@ body {
 }
 
 .letter-list__home-link,
-.sent-letter__back-link {
+.sent-letter__back-link,
+.sent-letter__reply-link {
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -1010,6 +1026,19 @@ body {
   font-weight: 700;
   text-align: center;
   text-decoration: none;
+}
+
+.sent-letter__waiting {
+  margin: 28px 0 0;
+  color: #806c5d;
+  text-align: center;
+}
+
+.sent-letter__back-link--secondary {
+  margin-top: 14px;
+  border: 1px solid #b98d75;
+  background: transparent;
+  color: #654f42;
 }
 
 .sent-letter__date {

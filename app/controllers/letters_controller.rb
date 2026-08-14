@@ -12,11 +12,12 @@ class LettersController < ApplicationController
   def show
     @letter = current_user.letters
       .where(status: "sent")
-      .includes(:pet)
+      .includes(:pet, :reply)
       .find_by(id: params[:id])
     return redirect_to letters_path, alert: "手紙が見つかりません" unless @letter
 
     @pet = @letter.pet
+    @reply = @letter.reply if @letter.reply_available?
   end
 
   def new
