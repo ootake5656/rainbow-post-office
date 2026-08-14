@@ -15,9 +15,20 @@
       今の気持ち、どんな言葉でも大丈夫です
     </p>
 
+    <% if @letter.errors.any? %>
+      <div class="letter-composition__errors">
+        <p>入力内容を確認してください</p>
+        <ul>
+          <% @letter.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <%= form_with model: @letter,
-                  url: new_letter_path,
-                  method: :get,
+                  url: confirm_letters_path,
+                  method: :post,
                   class: "letter-composition__form" do |form| %>
       <%= form.text_area :content,
                          placeholder: "ここに手紙を書いてください",
@@ -28,7 +39,7 @@
                            action: "input->letter-autosave#schedule blur->letter-autosave#save compositionstart->letter-autosave#startComposition compositionend->letter-autosave#finishComposition"
                          } %>
 
-      <button type="button" class="letter-composition__next">
+      <button type="submit" class="letter-composition__next">
         つぎへ
       </button>
     <% end %>

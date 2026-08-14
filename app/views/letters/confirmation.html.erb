@@ -1,0 +1,27 @@
+<main class="letter-confirmation">
+  <%= link_to "‹",
+              new_letter_path,
+              class: "letter-confirmation__back",
+              aria: { label: "手紙入力画面に戻る" } %>
+
+  <section class="letter-confirmation__content">
+    <h1 class="letter-confirmation__title">
+      大切なお手紙を<br>
+      確かにお預かりしました
+    </h1>
+
+    <div class="letter-confirmation__letter">
+      <%= simple_format(@letter.content) %>
+    </div>
+
+    <p class="letter-confirmation__description">
+      虹の麓郵便局の配達員が、<br>
+      <%= @pet.name %>ちゃんを探しに向かいます
+    </p>
+
+    <%= button_to "手紙を届けてもらう",
+                  send_letter_letters_path,
+                  method: :post,
+                  class: "letter-confirmation__submit" %>
+  </section>
+</main>

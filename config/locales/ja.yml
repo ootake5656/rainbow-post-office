@@ -14,6 +14,8 @@ ja:
         password_confirmation: パスワード確認
       pet:
         owner_call_name: 飼い主の呼び名
+      letter:
+        content: 手紙
 
     errors:
       models:
@@ -30,4 +32,8 @@ ja:
         pet:
           attributes:
             owner_call_name:
+              blank: を入力してください
+        letter:
+          attributes:
+            content:
               blank: を入力してください

@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
   resources :letters, only: :new do
     collection do
+      post :confirm
+      get :confirmation
+      post :send_letter
       patch :draft, action: :save_draft
       delete :draft, action: :destroy_draft
     end

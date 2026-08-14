@@ -525,11 +525,121 @@ body {
   line-height: 1.8;
 }
 
+.letter-composition__errors {
+  margin-bottom: 18px;
+  color: #b8404f;
+  text-align: left;
+}
+
+.letter-composition__errors p {
+  margin: 0 0 8px;
+}
+
+.letter-composition__errors ul {
+  margin: 0;
+  padding-left: 24px;
+}
+
 .letter-composition__form {
   display: flex;
   flex: 1;
   flex-direction: column;
   gap: 24px;
+}
+
+/* 手紙の確認画面 */
+.letter-confirmation {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  overflow: hidden;
+  background-image: url("letter_deposit_background_mobile.png");
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #3f3028;
+}
+
+.letter-confirmation__back {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 1;
+  color: #3f3028;
+  font-size: 44px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.letter-confirmation__content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 68px 24px 28px;
+  text-align: center;
+}
+
+.letter-confirmation__title {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.7;
+}
+
+.letter-confirmation__letter {
+  max-height: 28vh;
+  margin: 20px 0;
+  padding: 16px;
+  overflow-y: auto;
+  border: 2px solid #ddc9ad;
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.68);
+  text-align: left;
+}
+
+.letter-confirmation__letter p {
+  margin: 0 0 1em;
+  line-height: 1.8;
+}
+
+.letter-confirmation__description {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.letter-confirmation__content form {
+  margin-top: auto;
+}
+
+.letter-confirmation__submit {
+  width: 100%;
+  padding: 16px 20px;
+  border: 0;
+  border-radius: 999px;
+  background-color: #ef8290;
+  color: #ffffff;
+  font: inherit;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .letter-confirmation {
+    max-width: none;
+    background-image: url("letter_deposit_background_desktop.png");
+  }
+
+  .letter-confirmation__content {
+    width: min(46%, 560px);
+    margin-left: 50%;
+    padding: 72px 32px 40px;
+  }
 }
 
 .letter-composition__textarea {
