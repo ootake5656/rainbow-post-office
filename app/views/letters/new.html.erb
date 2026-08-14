@@ -21,7 +21,12 @@
                   class: "letter-composition__form" do |form| %>
       <%= form.text_area :content,
                          placeholder: "ここに手紙を書いてください",
-                         class: "letter-composition__textarea" %>
+                         class: "letter-composition__textarea",
+                         data: {
+                           controller: "letter-autosave",
+                           "letter-autosave-url-value": draft_letters_path,
+                           action: "input->letter-autosave#schedule blur->letter-autosave#save compositionstart->letter-autosave#startComposition compositionend->letter-autosave#finishComposition"
+                         } %>
 
       <button type="button" class="letter-composition__next">
         つぎへ

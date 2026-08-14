@@ -6,6 +6,37 @@ class LettersController < ApplicationController
     return redirect_to new_pet_path, alert: "先にペット名を登録してください" unless @pet
     # Petが登録されていない場合は手紙の宛先が存在しないのでペット名入力画面に移動
 
-    @letter = @pet.letters.build
+    @letter = draft_letter_for(@pet)
+  end
+
+  def save_draft
+    pet = current_user.pets.first
+    return head :not_found unless pet
+
+    letter = draft_letter_for(pet)
+
+    if letter.update(letter_params)
+      head :no_content
+    else
+      render json: { errors: letter.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy_draft
+    pet = current_user.pets.first
+    return head :not_found unless pet
+
+    pet.letters.where(status: "draft").destroy_all
+    head :no_content
+  end
+
+  private
+
+  def draft_letter_for(pet)
+    pet.letters.where(status: "draft").order(updated_at: :desc).first_or_initialize
+  end
+
+  def letter_params
+    params.require(:letter).permit(:content)
   end
 end

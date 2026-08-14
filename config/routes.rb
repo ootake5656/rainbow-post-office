@@ -13,7 +13,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :letters, only: :new
+  resources :letters, only: :new do
+    collection do
+      patch :draft, action: :save_draft
+      delete :draft, action: :destroy_draft
+    end
+  end
 
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
