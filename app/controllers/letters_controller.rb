@@ -1,6 +1,24 @@
 class LettersController < ApplicationController
   before_action :require_login        # 先にログイン状態を確認、未ログインなら移動
 
+  def index
+    @letters = current_user.letters
+      .where(status: "sent")
+      .includes(:reply, :pet)
+      .order(sent_at: :desc)
+    @letters_with_available_reply = @letters.select(&:reply_available?)
+  end
+
+  def show
+    @letter = current_user.letters
+      .where(status: "sent")
+      .includes(:pet)
+      .find_by(id: params[:id])
+    return redirect_to letters_path, alert: "手紙が見つかりません" unless @letter
+
+    @pet = @letter.pet
+  end
+
   def new
     @pet = current_user.pets.first
     return redirect_to new_pet_path, alert: "先にペット名を登録してください" unless @pet

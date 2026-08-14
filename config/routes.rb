@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :letters, only: :new do
+  resources :letters, only: %i[index show new] do
     collection do
       post :confirm
       get :confirmation

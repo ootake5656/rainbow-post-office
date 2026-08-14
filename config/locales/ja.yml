@@ -1,4 +1,8 @@
 ja:
+  time:
+    formats:
+      short: "%Y年%-m月%-d日 %H:%M"
+
   errors:
     format: "%{attribute}%{message}"
 
