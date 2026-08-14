@@ -1,0 +1,18 @@
+<main class="reply-letter">
+  <section class="reply-letter__content">
+    <header class="reply-letter__header">
+      <p class="reply-letter__sender">管理人からの手紙</p>
+      <h1 class="reply-letter__title">
+        <%= @pet.name %>ちゃんへの手紙のお返事
+      </h1>
+    </header>
+
+    <article class="reply-letter__body">
+      <%= simple_format(@reply.content) %>
+    </article>
+
+    <%= link_to "トップページへ戻る",
+                root_path,
+                class: "reply-letter__home-link" %>
+  </section>
+</main>

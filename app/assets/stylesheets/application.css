@@ -19,6 +19,101 @@ body {
   color: #3f352c;
 }
 
+/* 管理人からの手紙表示画面 */
+.reply-letter {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  overflow: hidden;
+  background-image: url("reply_arrival_background_mobile.png");
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #3f3028;
+}
+
+.reply-letter__content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 42px 24px 28px;
+  text-align: center;
+}
+
+.reply-letter__header {
+  padding: 18px;
+  border-radius: 14px;
+  background-color: rgba(255, 252, 245, 0.82);
+}
+
+.reply-letter__sender {
+  margin: 0;
+  color: #9b6f55;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.reply-letter__title {
+  margin: 8px 0 0;
+  font-size: 21px;
+  line-height: 1.6;
+}
+
+.reply-letter__body {
+  max-height: 56vh;
+  max-height: 56svh;
+  margin-top: 18px;
+  padding: 22px;
+  overflow-y: auto;
+  border: 1px solid #ddc9ad;
+  border-radius: 14px;
+  background-color: rgba(255, 252, 245, 0.9);
+  text-align: left;
+}
+
+.reply-letter__body p {
+  margin: 0 0 1.2em;
+  line-height: 1.9;
+}
+
+.reply-letter__home-link {
+  box-sizing: border-box;
+  display: block;
+  width: min(100%, 360px);
+  margin: 20px auto 0;
+  padding: 16px 20px;
+  border-radius: 999px;
+  background-color: #ef8290;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .reply-letter {
+    max-width: none;
+    background-image: url("reply_arrival_background_desktop.png");
+    background-position: center;
+  }
+
+  .reply-letter__content {
+    width: min(48%, 640px);
+    margin-left: 50%;
+    padding: 48px 32px 36px;
+  }
+
+  .reply-letter__body {
+    max-height: 58vh;
+    max-height: 58svh;
+  }
+}
+
 .top-page {
   width: 100%;
   max-width: 540px;
