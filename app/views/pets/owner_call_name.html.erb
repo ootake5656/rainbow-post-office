@@ -1,0 +1,55 @@
+<main class="owner-call-name-registration">
+  <%= link_to "‹",
+              root_path,
+              class: "owner-call-name-registration__back",
+              aria: { label: "前の画面に戻る" } %>
+
+  <div class="owner-call-name-registration__progress" aria-label="登録の進行状況">
+    <span class="owner-call-name-registration__progress-dot"></span>
+    <span class="owner-call-name-registration__progress-dot owner-call-name-registration__progress-dot--active"></span>
+    <span class="owner-call-name-registration__progress-dot"></span>
+    <span class="owner-call-name-registration__progress-dot"></span>
+    <span class="owner-call-name-registration__progress-dot"></span>
+  </div>
+
+  <section class="owner-call-name-registration__content">
+    <h1 class="owner-call-name-registration__title">
+      あの子には、誰からの<br>
+      お手紙だと伝えればいいですか？
+    </h1>
+
+    <p class="owner-call-name-registration__description">
+      あの子が、あなたを呼ぶ時に<br>
+      使っていたと思う呼び名を教えてください
+    </p>
+
+    <p class="owner-call-name-registration__example">
+      例：ママ、お兄ちゃん、〇〇ちゃん
+    </p>
+
+    <%= form_with model: @pet,
+                  url: owner_call_name_pets_path,
+                  method: :patch,
+                  class: "owner-call-name-registration__form" do |form| %>
+      <% if @pet.errors.any? %>
+        <div class="owner-call-name-registration__errors">
+          <p>入力内容を確認してください</p>
+
+          <ul>
+            <% @pet.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form.text_field :owner_call_name,
+                          placeholder: "あなたの呼び名を入力",
+                          required: true,
+                          class: "owner-call-name-registration__input" %>
+
+      <%= form.submit "つぎへ",
+                      class: "owner-call-name-registration__submit" %>
+    <% end %>
+  </section>
+</main>

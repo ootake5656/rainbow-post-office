@@ -11,10 +11,27 @@ class PetsController < ApplicationController
     @pet = current_user.pets.build(pet_params)
 
     if @pet.save
-      redirect_to root_path
+      redirect_to owner_call_name_pets_path
     else
       # 入力内容に問題がある場合は入力画面を再表示する
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  # ユーザーの呼び名を入力
+  def owner_call_name
+    @pet = current_user.pets.first
+    return redirect_to new_pet_path, alert: "先にペット名を登録してください" unless @pet
+  end
+
+  def update_owner_call_name
+    @pet = current_user.pets.first
+    return redirect_to new_pet_path, alert: "先にペット名を登録してください" unless @pet
+
+    if @pet.update(owner_call_name_params)
+      redirect_to root_path
+    else
+      render :owner_call_name, status: :unprocessable_entity
     end
   end
 
@@ -22,6 +39,10 @@ class PetsController < ApplicationController
 
   def pet_params
     params.require(:pet).permit(:name)
+  end
+
+  def owner_call_name_params
+    params.require(:pet).permit(:owner_call_name)
   end
 
   def redirect_if_pet_registered

@@ -4,4 +4,5 @@ class Pet < ApplicationRecord
 
   validates :name, presence: true
   validates :user_id, uniqueness: true
+  validates :owner_call_name, presence: true, on: :update
 end

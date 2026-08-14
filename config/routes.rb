@@ -2,7 +2,16 @@ Rails.application.routes.draw do
   root "static_pages#top"
 
   resources :users, only: %i[new create]
-  resources :pets, only: %i[new create]
+  resources :pets, only: %i[new create] do
+    collection do   # ログイン中のユーザーからPetを探すので別のユーザーのPet IDを入力される危険を減らす
+      get :owner_call_name    # 入力画面を表示する
+                              # PetsController#owner_call_nameへつながる
+      patch :owner_call_name, action: :update_owner_call_name
+                  # 入力された呼び名を送信する
+                  # PetsController#update_owner_call_nameへつながる
+                  # 既存のPetを更新するためPOSTではなくPATCHを使う
+    end
+  end
 
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
