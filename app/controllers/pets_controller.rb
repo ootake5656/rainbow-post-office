@@ -21,7 +21,7 @@ class PetsController < ApplicationController
   # ユーザーの呼び名を入力
   def owner_call_name
     @pet = current_user.pets.first
-    return redirect_to new_pet_path, alert: "先にペット名を登録してください" unless @pet
+    redirect_to new_pet_path, alert: "先にペット名を登録してください" unless @pet
   end
 
   def update_owner_call_name
@@ -29,7 +29,7 @@ class PetsController < ApplicationController
     return redirect_to new_pet_path, alert: "先にペット名を登録してください" unless @pet
 
     if @pet.update(owner_call_name_params)
-      redirect_to root_path
+      redirect_to new_letter_path
     else
       render :owner_call_name, status: :unprocessable_entity
     end

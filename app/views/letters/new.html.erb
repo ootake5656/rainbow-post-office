@@ -1,0 +1,31 @@
+<main class="letter-composition">
+  <%= link_to "‹",
+              owner_call_name_pets_path,
+              class: "letter-composition__back",
+              aria: { label: "飼い主の呼び名入力画面に戻る" } %>
+
+  <section class="letter-composition__content">
+    <h1 class="letter-composition__title">
+      <%= @pet.name %>ちゃんへの<br>
+      お手紙をこちらにお書きください
+    </h1>
+
+    <p class="letter-composition__description">
+      楽しかった思い出、伝えられなかったこと<br>
+      今の気持ち、どんな言葉でも大丈夫です
+    </p>
+
+    <%= form_with model: @letter,
+                  url: new_letter_path,
+                  method: :get,
+                  class: "letter-composition__form" do |form| %>
+      <%= form.text_area :content,
+                         placeholder: "ここに手紙を書いてください",
+                         class: "letter-composition__textarea" %>
+
+      <button type="button" class="letter-composition__next">
+        つぎへ
+      </button>
+    <% end %>
+  </section>
+</main>
