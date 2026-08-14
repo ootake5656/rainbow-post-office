@@ -32,6 +32,12 @@
     </div>
 
     <div class="top-page__actions">
+      <% if @available_reply %>
+        <%= link_to "管理人からの手紙が届いています",
+                    reply_path(@available_reply),
+                    class: "top-page__reply-notice" %>
+      <% end %>
+
       <button type="button" class="top-page__button">
         あの子に手紙を書く
       </button>

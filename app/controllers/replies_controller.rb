@@ -10,5 +10,6 @@ class RepliesController < ApplicationController
     return redirect_to root_path, alert: "お返事はまだ届いていません" unless @letter.reply_available?
 
     @pet = @letter.pet
+    @reply.update!(read_at: Time.current) unless @reply.read_at
   end
 end
