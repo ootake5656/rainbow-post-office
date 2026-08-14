@@ -1,7 +1,4 @@
-<main class="letter-delivery"
-      data-controller="delivery-redirect"                   <%# delivery_redirect_controller.jsを起動 %>
-      data-delivery-redirect-url-value="<%= root_path %>"   <%# トップページに移動させる %>
-      data-delivery-redirect-delay-value="5000">            <%# 移動するまでの時間5秒 %>
+<main class="letter-delivery">
 
   <section class="letter-delivery__content">
     <h1 class="letter-delivery__title">
@@ -17,5 +14,9 @@
     <p class="letter-delivery__notice">
       アプリを閉じても大丈夫です
     </p>
+
+    <%= link_to "トップページへ戻る",
+                root_path,
+                class: "letter-delivery__home-link" %>
   </section>
 </main>
