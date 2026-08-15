@@ -26,8 +26,7 @@ class UserTest < ActiveSupport::TestCase
   )
 
   assert_not user.valid?
-  assert_includes user.errors.details[:password_confirmation],
-                  { error: :confirmation, attribute: "Password" }
+  assert user.errors.of_kind?(:password_confirmation, :confirmation)
   end
 
   # 「メールアドレスは必須」の確認

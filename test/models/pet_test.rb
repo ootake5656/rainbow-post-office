@@ -13,4 +13,16 @@ class PetTest < ActiveSupport::TestCase
     assert_equal :has_many, association.macro
     assert_equal :destroy, association.options[:dependent]
   end
+
+  test "name must be present" do
+    user = User.create!(
+      email: "pet-owner@example.com",
+      password: "password",
+      password_confirmation: "password"
+    )
+    pet = user.pets.build(name: "")
+
+    assert_not pet.valid?
+    assert pet.errors.of_kind?(:name, :blank)
+  end
 end
