@@ -1170,3 +1170,141 @@ body {
   margin: 22px 0 0;
   line-height: 1.9;
 }
+
+/* ユーザー登録画面 */
+.user-registration {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 40px 20px;
+  background:
+    radial-gradient(circle at 20% 15%, rgb(255 255 255 / 70%), transparent 32%),
+    radial-gradient(circle at 85% 85%, rgb(241 210 168 / 28%), transparent 34%),
+    #f8efe1;
+  color: #3f3028;
+}
+
+.user-registration__content {
+  box-sizing: border-box;
+  width: min(100%, 520px);
+  padding: 38px 42px;
+  border: 1px solid #dfc9aa;
+  border-radius: 20px;
+  background-color: rgb(255 252 245 / 88%);
+  box-shadow: 0 14px 36px rgb(91 67 45 / 12%);
+}
+
+.user-registration__header {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.user-registration__title {
+  margin: 0;
+  font-size: 30px;
+}
+
+.user-registration__description {
+  margin: 16px 0 0;
+  color: #705d50;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.user-registration__form {
+  display: grid;
+  gap: 20px;
+}
+
+.user-registration__errors {
+  padding: 14px 16px;
+  border: 1px solid #eaa3aa;
+  border-radius: 12px;
+  background-color: #fff2f2;
+  color: #a43f4c;
+}
+
+.user-registration__errors p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.user-registration__errors ul {
+  margin: 10px 0 0;
+  padding-left: 22px;
+}
+
+.user-registration__field {
+  display: grid;
+  gap: 8px;
+}
+
+.user-registration__label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.user-registration__input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 14px;
+  border: 1px solid #cdb89e;
+  border-radius: 10px;
+  background-color: rgb(255 255 255 / 82%);
+  color: #3f3028;
+  font: inherit;
+}
+
+.user-registration__input:focus {
+  border-color: #e67b89;
+  outline: 3px solid rgb(230 123 137 / 18%);
+}
+
+.user-registration__submit {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 999px;
+  background-color: #ef8291;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.user-registration__submit:hover {
+  background-color: #e57182;
+}
+
+.user-registration__login {
+  margin: 24px 0 0;
+  color: #705d50;
+  font-size: 14px;
+  text-align: center;
+}
+
+.user-registration__login-link {
+  color: #b65363;
+  font-weight: 700;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+  .user-registration {
+    align-items: start;
+    padding: 24px 14px;
+  }
+
+  .user-registration__content {
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
+
+  .user-registration__title {
+    font-size: 27px;
+  }
+}
