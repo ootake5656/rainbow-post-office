@@ -1,0 +1,59 @@
+<main class="letter-list">
+  <section class="letter-list__content">
+    <header class="letter-list__header">
+      <h1 class="letter-list__title">手紙一覧</h1>
+      <p class="letter-list__description">
+        あの子へ送った手紙と、<br>
+        管理人から届いた手紙を読み返せます
+      </p>
+    </header>
+
+    <section class="letter-list__section">
+      <h2 class="letter-list__section-title">送った手紙</h2>
+
+      <% if @letters.any? %>
+        <div class="letter-list__items">
+          <% @letters.each do |letter| %>
+            <%= link_to letter_path(letter), class: "letter-list__item" do %>
+              <span class="letter-list__item-date">
+                <%= l letter.sent_at, format: :short %>
+              </span>
+              <span class="letter-list__item-label">
+                <%= letter.pet.name %>ちゃんへの手紙
+              </span>
+              <% if letter.reply_available? && !letter.reply.read_at? %>
+                <span class="letter-list__item-status">返事が届いています</span>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <p class="letter-list__empty">まだ送った手紙はありません</p>
+      <% end %>
+    </section>
+
+    <section class="letter-list__section">
+      <h2 class="letter-list__section-title">届いた返事</h2>
+
+      <% if @letters_with_available_reply.any? %>
+        <div class="letter-list__items">
+          <% @letters_with_available_reply.each do |letter| %>
+            <%= link_to reply_path(letter.reply), class: "letter-list__item" do %>
+              <span class="letter-list__item-date">
+                <%= l letter.reply_available_at, format: :short %>
+              </span>
+              <span class="letter-list__item-label">管理人からの手紙</span>
+              <% unless letter.reply.read_at? %>
+                <span class="letter-list__item-status">未読</span>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <p class="letter-list__empty">まだ届いた返事はありません</p>
+      <% end %>
+    </section>
+
+    <%= link_to "トップページへ戻る", root_path, class: "letter-list__home-link" %>
+  </section>
+</main>

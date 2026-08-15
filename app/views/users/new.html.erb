@@ -1,0 +1,70 @@
+<main class="user-registration">
+  <section class="user-registration__content">
+    <header class="user-registration__header">
+      <h1 class="user-registration__title">ユーザー登録</h1>
+
+      <p class="user-registration__description">
+        虹の麓の郵便局を利用するために、<br>
+        メールアドレスとパスワードを登録してください
+      </p>
+    </header>
+
+    <%= form_with model: @user,
+                  class: "user-registration__form" do |form| %>
+      <% if @user.errors.any? %>
+        <div class="user-registration__errors">
+          <p>入力内容を確認してください</p>
+
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="user-registration__field">
+        <%= form.label :email,
+                       "メールアドレス",
+                       class: "user-registration__label" %>
+
+        <%= form.email_field :email,
+                             autocomplete: "email",
+                             required: true,
+                             class: "user-registration__input" %>
+      </div>
+
+      <div class="user-registration__field">
+        <%= form.label :password,
+                       "パスワード",
+                       class: "user-registration__label" %>
+
+        <%= form.password_field :password,
+                                autocomplete: "new-password",
+                                required: true,
+                                class: "user-registration__input" %>
+      </div>
+
+      <div class="user-registration__field">
+        <%= form.label :password_confirmation,
+                       "パスワード確認",
+                       class: "user-registration__label" %>
+
+        <%= form.password_field :password_confirmation,
+                                autocomplete: "new-password",
+                                required: true,
+                                class: "user-registration__input" %>
+      </div>
+
+      <%= form.submit "登録する",
+                      class: "user-registration__submit" %>
+    <% end %>
+
+    <p class="user-registration__login">
+      すでに登録済みの方は
+      <%= link_to "ログイン",
+                  login_path,
+                  class: "user-registration__login-link" %>
+    </p>
+  </section>
+</main>

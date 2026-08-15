@@ -1,4 +1,38 @@
 Rails.application.routes.draw do
+  root "static_pages#top"
+  get "diary", to: "static_pages#diary_coming_soon"
+
+  resources :users, only: %i[new create]
+  resources :pets, only: %i[new create] do
+    collection do   # ログイン中のユーザーからPetを探すので別のユーザーのPet IDを入力される危険を減らす
+      get :owner_call_name    # 入力画面を表示する
+      # PetsController#owner_call_nameへつながる
+      patch :owner_call_name, action: :update_owner_call_name
+      # 入力された呼び名を送信する
+      # PetsController#update_owner_call_nameへつながる
+      # 既存のPetを更新するためPOSTではなくPATCHを使う
+    end
+  end
+
+  resources :letters, only: %i[index show new] do
+    collection do
+      post :confirm
+      get :confirmation
+      post :send_letter
+      get :delivery
+      patch :draft, action: :save_draft
+      delete :draft, action: :destroy_draft
+    end
+  end
+
+  resources :replies, only: :show
+
+  get "login", to: "user_sessions#new"
+  post "login", to: "user_sessions#create"
+  delete "logout", to: "user_sessions#destroy"
+
+  resource :mypage, only: :show
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

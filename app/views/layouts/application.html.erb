@@ -17,7 +17,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= "with-bottom-navigation" if bottom_navigation_visible? %>">
+    <% if flash[:alert] %>
+      <p class="flash-message flash-message--alert"><%= flash[:alert] %></p>
+    <% end %>
+
     <%= yield %>
+
+    <%= render "shared/bottom_navigation" if bottom_navigation_visible? %>
   </body>
 </html>

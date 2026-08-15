@@ -1,0 +1,31 @@
+<nav class="bottom-navigation" aria-label="メインメニュー">
+  <div class="bottom-navigation__inner">
+    <%= link_to root_path,
+                class: bottom_navigation_item_class(:home),
+                aria: { current: ("page" if bottom_navigation_active?(:home)) } do %>
+      <span class="bottom-navigation__icon" aria-hidden="true">⌂</span>
+      <span class="bottom-navigation__label">ホーム</span>
+    <% end %>
+
+    <%= link_to diary_path,
+                class: bottom_navigation_item_class(:diary),
+                aria: { current: ("page" if bottom_navigation_active?(:diary)) } do %>
+      <span class="bottom-navigation__icon" aria-hidden="true">✎</span>
+      <span class="bottom-navigation__label">日記を書く</span>
+    <% end %>
+
+    <%= link_to letters_path,
+                class: bottom_navigation_item_class(:letters),
+                aria: { current: ("page" if bottom_navigation_active?(:letters)) } do %>
+      <span class="bottom-navigation__icon" aria-hidden="true">&#x2709;&#xFE0E;</span>
+      <span class="bottom-navigation__label">手紙一覧</span>
+    <% end %>
+
+    <%= link_to mypage_path,
+                class: bottom_navigation_item_class(:mypage),
+                aria: { current: ("page" if bottom_navigation_active?(:mypage)) } do %>
+      <span class="bottom-navigation__icon" aria-hidden="true">♙</span>
+      <span class="bottom-navigation__label">マイページ</span>
+    <% end %>
+  </div>
+</nav>

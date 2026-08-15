@@ -1,0 +1,47 @@
+<main class="letter-composition">
+  <%= link_to "‹",
+              owner_call_name_pets_path,
+              class: "letter-composition__back",
+              aria: { label: "飼い主の呼び名入力画面に戻る" } %>
+
+  <section class="letter-composition__content">
+    <h1 class="letter-composition__title">
+      <%= @pet.name %>ちゃんへの<br>
+      お手紙をこちらにお書きください
+    </h1>
+
+    <p class="letter-composition__description">
+      楽しかった思い出、伝えられなかったこと<br>
+      今の気持ち、どんな言葉でも大丈夫です
+    </p>
+
+    <% if @letter.errors.any? %>
+      <div class="letter-composition__errors">
+        <p>入力内容を確認してください</p>
+        <ul>
+          <% @letter.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_with model: @letter,
+                  url: confirm_letters_path,
+                  method: :post,
+                  class: "letter-composition__form" do |form| %>
+      <%= form.text_area :content,
+                         placeholder: "ここに手紙を書いてください",
+                         class: "letter-composition__textarea",
+                         data: {
+                           controller: "letter-autosave",
+                           "letter-autosave-url-value": draft_letters_path,
+                           action: "input->letter-autosave#schedule blur->letter-autosave#save compositionstart->letter-autosave#startComposition compositionend->letter-autosave#finishComposition"
+                         } %>
+
+      <button type="submit" class="letter-composition__next">
+        つぎへ
+      </button>
+    <% end %>
+  </section>
+</main>

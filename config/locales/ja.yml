@@ -1,0 +1,43 @@
+ja:
+  time:
+    formats:
+      short: "%Y年%-m月%-d日 %H:%M"
+
+  errors:
+    format: "%{attribute}%{message}"
+
+  activerecord:
+    models:
+      user: ユーザー
+      pet: ペット
+
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+      pet:
+        owner_call_name: 飼い主の呼び名
+      letter:
+        content: 手紙
+
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: を入力してください
+              taken: はすでに登録されています
+            password:
+              blank: を入力してください
+            password_confirmation:
+              blank: を入力してください
+              confirmation: がパスワードと一致しません
+        pet:
+          attributes:
+            owner_call_name:
+              blank: を入力してください
+        letter:
+          attributes:
+            content:
+              blank: を入力してください

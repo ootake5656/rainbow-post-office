@@ -1,0 +1,52 @@
+<main class="top-page">
+  <section class="top-page__content">
+    <h1 class="top-page__title">虹の麓の郵便局</h1>
+
+    <div class="top-page__message">
+      <p>はじめまして</p>
+
+      <p>
+        私は、虹の橋を渡った先にある<br>
+        郵便局で働いています
+      </p>
+
+      <p>
+        大切なあの子へ、伝えたい言葉は<br>
+        ありませんか？
+      </p>
+
+      <p>
+        あなたからお預かりしたお手紙を、<br>
+        虹の麓で暮らすあの子へお届けします
+      </p>
+
+      <p>
+        虹の麓には、たくさんの動物たちが<br>
+        楽しく暮らしています
+      </p>
+
+      <p>
+        あの子を見つけられるように、<br>
+        少しだけお話を聞かせてください
+      </p>
+    </div>
+
+    <div class="top-page__actions">
+      <% if @available_reply %>
+        <%= link_to "管理人からの手紙が届いています",
+                    reply_path(@available_reply),
+                    class: "top-page__reply-notice" %>
+      <% end %>
+
+      <%= link_to "あの子に手紙を書く",
+                  logged_in? ? new_letter_path : login_path,
+                  class: "top-page__button top-page__button--link" %>
+
+      <% unless logged_in? %>
+        <%= link_to "新規登録/ログイン",
+                    login_path,
+                    class: "top-page__button top-page__button--link" %>
+      <% end %>
+    </div>
+  </section>
+</main>

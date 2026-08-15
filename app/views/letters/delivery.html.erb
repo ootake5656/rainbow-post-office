@@ -1,0 +1,22 @@
+<main class="letter-delivery">
+
+  <section class="letter-delivery__content">
+    <h1 class="letter-delivery__title">
+      手紙は無事<br>
+      <%= @pet.name %>ちゃんに届きました
+    </h1>
+
+    <p class="letter-delivery__message">
+      お返事があるまで<br>
+      もう少しお待ちください
+    </p>
+
+    <p class="letter-delivery__notice">
+      アプリを閉じても大丈夫です
+    </p>
+
+    <%= link_to "トップページへ戻る",
+                root_path,
+                class: "letter-delivery__home-link" %>
+  </section>
+</main>

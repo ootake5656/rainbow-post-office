@@ -13,3 +13,1298 @@
  *= require_tree .
  *= require_self
  */
+body {
+  margin: 0;
+  background-color: #fffaf1;
+  color: #3f352c;
+}
+
+/* 管理人からの手紙表示画面 */
+.reply-letter {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  overflow: hidden;
+  background-image: url("reply_arrival_background_mobile.png");
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #3f3028;
+}
+
+.reply-letter__content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 42px 24px 28px;
+  text-align: center;
+}
+
+.reply-letter__header {
+  padding: 18px;
+  border-radius: 14px;
+  background-color: rgba(255, 252, 245, 0.82);
+}
+
+.reply-letter__sender {
+  margin: 0;
+  color: #9b6f55;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.reply-letter__title {
+  margin: 8px 0 0;
+  font-size: 21px;
+  line-height: 1.6;
+}
+
+.reply-letter__body {
+  max-height: 56vh;
+  max-height: 56svh;
+  margin-top: 18px;
+  padding: 22px;
+  overflow-y: auto;
+  border: 1px solid #ddc9ad;
+  border-radius: 14px;
+  background-color: rgba(255, 252, 245, 0.9);
+  text-align: left;
+}
+
+.reply-letter__body p {
+  margin: 0 0 1.2em;
+  line-height: 1.9;
+}
+
+.reply-letter__home-link {
+  box-sizing: border-box;
+  display: block;
+  width: min(100%, 360px);
+  margin: 20px auto 0;
+  padding: 16px 20px;
+  border-radius: 999px;
+  background-color: #ef8290;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.reply-letter__list-link {
+  display: block;
+  box-sizing: border-box;
+  width: min(100%, 360px);
+  margin: 14px auto 0;
+  padding: 13px 20px;
+  border: 1px solid #b98d75;
+  border-radius: 999px;
+  background-color: rgba(255, 252, 245, 0.92);
+  color: #654f42;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .reply-letter {
+    max-width: none;
+    background-image: url("reply_arrival_background_desktop.png");
+    background-position: center;
+  }
+
+  .reply-letter__content {
+    width: min(48%, 640px);
+    margin-left: 50%;
+    padding: 48px 32px 36px;
+  }
+
+  .reply-letter__body {
+    max-height: 58vh;
+    max-height: 58svh;
+  }
+}
+
+.top-page {
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+
+  /* スマートフォン用の背景画像 */
+  background-image: url("top_background_mobile.png");
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.top-page__content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 40px 24px 32px;
+}
+
+.top-page__title {
+  margin: 0 0 24px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.top-page__message {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.top-page__message p {
+  margin: 0 0 16px;
+}
+
+.top-page__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.top-page__button {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 14px 20px;
+  border: 1px solid #ef8f99;
+  border-radius: 999px;
+  background-color: #ef8f99;
+  color: #ffffff;
+  font: inherit;
+  text-align: center;
+}
+
+.top-page__button--link {
+  text-decoration: none;
+}
+
+.top-page__reply-notice {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #d5a75f;
+  border-radius: 14px;
+  background-color: rgba(255, 252, 238, 0.94);
+  color: #76532f;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(108, 76, 40, 0.16);
+}
+
+@media (min-width: 768px) {         /* pc用画像。画面幅が768px以上の場合だけこの中のCSSを使う　*/
+  .top-page {
+    max-width: none;
+    background-image: url("top_background_desktop.png");
+    background-position: center;
+  }
+
+  .top-page__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px;
+  }
+
+  .top-page__title {
+    text-align: left;
+  }
+
+  .top-page__message {
+    max-width: 480px;
+    font-size: 16px;
+  }
+
+  .top-page__actions {
+    width: 360px;
+  }
+}
+
+/* ペット名入力画面 */
+.pet-registration {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  overflow: hidden;
+  background-image: url("name_background_mobile.png");
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #3f3028;
+}
+
+.pet-registration__back {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 1;
+  color: #3f3028;
+  font-size: 44px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.pet-registration__progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding-top: 34px;
+}
+
+.pet-registration__progress-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: #f7c8cb;
+}
+
+.pet-registration__progress-dot--active {
+  background-color: #ef8290;
+}
+
+.pet-registration__content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 56px 32px 32px;
+  text-align: center;
+}
+
+.pet-registration__title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.6;
+}
+
+.pet-registration__example {
+  margin: 12px 0 28px;
+  color: #9b8172;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.pet-registration__form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.pet-registration__errors {
+  margin-bottom: 16px;
+  color: #b8404f;
+  text-align: left;
+}
+
+.pet-registration__errors p {
+  margin: 0 0 8px;
+}
+
+.pet-registration__errors ul {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.pet-registration__name-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.pet-registration__input {
+  box-sizing: border-box;
+  width: min(72%, 310px);
+  padding: 16px;
+  border: 2px solid #ddc9ad;
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.72);
+  color: #3f3028;
+  font: inherit;
+  font-size: 18px;
+}
+
+.pet-registration__input::placeholder {
+  color: #a18a7a;
+}
+
+.pet-registration__honorific {
+  flex-shrink: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.pet-registration__submit {
+  width: 100%;
+  margin-top: auto;
+  padding: 16px 20px;
+  border: 0;
+  border-radius: 999px;
+  background-color: #ef8290;
+  color: #ffffff;
+  font: inherit;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* PC表示 */
+@media (min-width: 768px) {
+  .pet-registration {
+    max-width: none;
+    background-image: url("name_background_desktop.png");
+    background-position: center;
+  }
+
+  .pet-registration__progress {
+    padding-top: 40px;
+  }
+
+  .pet-registration__content {
+    width: min(42%, 500px);
+    margin-left: 52%;
+    padding: 72px 32px 64px;
+  }
+
+  .pet-registration__form {
+    flex: initial;
+  }
+
+  .pet-registration__submit {
+    margin-top: 40px;
+  }
+}
+
+/* ログイン画面 */
+.authentication-page {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: 48px 24px;
+  background-color: #fffaf2;
+}
+
+.authentication-page__content {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.authentication-page__form {
+  display: grid;
+  gap: 20px;
+}
+
+.authentication-page__form div {
+  display: grid;
+  gap: 6px;
+}
+
+.authentication-page__form input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+}
+
+.flash-message--alert {
+  color: #b8404f;
+}
+
+.flash-message {
+  margin: 0;
+  padding: 12px 24px;
+  background-color: #fff3f4;
+  text-align: center;
+}
+
+/* MVPの簡易マイページ */
+.mypage {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: 48px 24px;
+  background-color: #fffaf2;
+}
+
+/* 飼い主の呼び名入力画面 */
+.owner-call-name-registration {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  overflow: hidden;
+  background-image: url("owner_call_name_background_mobile.png");
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #3f3028;
+}
+
+.owner-call-name-registration__back {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 1;
+  color: #3f3028;
+  font-size: 44px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.owner-call-name-registration__progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding-top: 34px;
+}
+
+.owner-call-name-registration__progress-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: #f7c8cb;
+}
+
+.owner-call-name-registration__progress-dot--active {
+  background-color: #ef8290;
+}
+
+.owner-call-name-registration__content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 56px 32px 32px;
+  text-align: center;
+}
+
+.owner-call-name-registration__title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.55;
+}
+
+.owner-call-name-registration__description {
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.owner-call-name-registration__example {
+  margin: 10px 0 24px;
+  color: #9b8172;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.owner-call-name-registration__form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.owner-call-name-registration__errors {
+  margin-bottom: 16px;
+  color: #b8404f;
+  text-align: left;
+}
+
+.owner-call-name-registration__errors p {
+  margin: 0 0 8px;
+}
+
+.owner-call-name-registration__errors ul {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.owner-call-name-registration__input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #ddc9ad;
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.72);
+  color: #3f3028;
+  font: inherit;
+  font-size: 18px;
+}
+
+.owner-call-name-registration__input::placeholder {
+  color: #a18a7a;
+}
+
+.owner-call-name-registration__submit {
+  width: 100%;
+  margin-top: auto;
+  padding: 16px 20px;
+  border: 0;
+  border-radius: 999px;
+  background-color: #ef8290;
+  color: #ffffff;
+  font: inherit;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .owner-call-name-registration {
+    max-width: none;
+    background-image: url("owner_call_name_background_desktop.png");
+    background-position: center;
+  }
+
+  .owner-call-name-registration__progress {
+    padding-top: 40px;
+  }
+
+  .owner-call-name-registration__content {
+    width: min(42%, 500px);
+    margin-left: 52%;
+    padding: 72px 32px 64px;
+  }
+
+  .owner-call-name-registration__form {
+    flex: initial;
+  }
+
+  .owner-call-name-registration__submit {
+    margin-top: 40px;
+  }
+}
+
+/* 手紙入力画面 */
+.letter-composition {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  overflow: hidden;
+  background-image: url("letter_background_mobile.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #3f3028;
+}
+
+.letter-composition__back {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 1;
+  color: #3f3028;
+  font-size: 44px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.letter-composition__content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 68px 24px 28px;
+  text-align: center;
+}
+
+.letter-composition__title {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.7;
+}
+
+.letter-composition__description {
+  margin: 18px 0 24px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.letter-composition__errors {
+  margin-bottom: 18px;
+  color: #b8404f;
+  text-align: left;
+}
+
+.letter-composition__errors p {
+  margin: 0 0 8px;
+}
+
+.letter-composition__errors ul {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.letter-composition__form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 手紙の確認画面 */
+.letter-confirmation {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  overflow: hidden;
+  background-image: url("letter_deposit_background_mobile.png");
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #3f3028;
+}
+
+.letter-confirmation__back {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 1;
+  color: #3f3028;
+  font-size: 44px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.letter-confirmation__content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 68px 24px 28px;
+  text-align: center;
+}
+
+.letter-confirmation__title {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.7;
+}
+
+.letter-confirmation__letter {
+  max-height: 28vh;
+  margin: 20px 0;
+  padding: 16px;
+  overflow-y: auto;
+  border: 2px solid #ddc9ad;
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.68);
+  text-align: left;
+}
+
+.letter-confirmation__letter p {
+  margin: 0 0 1em;
+  line-height: 1.8;
+}
+
+.letter-confirmation__description {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.letter-confirmation__content form {
+  margin-top: auto;
+}
+
+.letter-confirmation__submit {
+  width: 100%;
+  padding: 16px 20px;
+  border: 0;
+  border-radius: 999px;
+  background-color: #ef8290;
+  color: #ffffff;
+  font: inherit;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .letter-confirmation {
+    max-width: none;
+    background-image: url("letter_deposit_background_desktop.png");
+  }
+
+  .letter-confirmation__content {
+    width: min(46%, 560px);
+    margin-left: 50%;
+    padding: 72px 32px 40px;
+  }
+}
+
+.letter-composition__textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 42vh;
+  min-height: 42svh;
+  padding: 18px;
+  resize: vertical;
+  border: 2px solid #ddc9ad;
+  border-radius: 14px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.42);
+  color: #3f3028;
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.letter-composition__textarea::placeholder {
+  color: #a18a7a;
+}
+
+.letter-composition__textarea:focus {
+  border-color: #ef8290;
+}
+
+.letter-composition__next {
+  width: 100%;
+  margin-top: auto;
+  padding: 16px 20px;
+  border: 0;
+  border-radius: 999px;
+  background-color: #ef8290;
+  color: #ffffff;
+  font: inherit;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.letter-delivery__home-link {
+  display: block;
+  width: 100%;
+  margin-top: auto;
+  padding: 16px 20px;
+  border-radius: 999px;
+  background-color: #ef8290;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .letter-composition {
+    max-width: none;
+    background-image: url("letter_background_desktop.png");
+  }
+
+  .letter-composition__content {
+    width: min(90%, 720px);
+    margin: 0 auto;
+    padding: 72px 32px 40px;
+  }
+
+  .letter-composition__textarea {
+    min-height: 46vh;
+    min-height: 46svh;
+  }
+
+  .letter-composition__next {
+    width: min(100%, 440px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* 手紙の配達演出画面 */
+.letter-delivery {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 540px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  overflow: hidden;
+  background-image: url("letter_delivery_background_mobile.png");
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #3f3028;
+}
+
+.letter-delivery__content {
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 72px 28px 32px;
+  text-align: center;
+}
+
+.letter-delivery__title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.7;
+}
+
+.letter-delivery__message {
+  margin: 28px 0 0;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.letter-delivery__notice {
+  margin: 18px 0 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+@media (min-width: 768px) {
+  .letter-delivery {
+    max-width: none;
+    background-image: url("letter_delivery_background_desktop.png");
+    background-position: center;
+  }
+
+  .letter-delivery__content {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 72px 28px 32px;
+    text-align: center;
+  }
+
+  .letter-delivery__home-link {
+    display: block;
+    width: 100%;
+    margin-top: auto;
+    padding: 16px 20px;
+    border-radius: 999px;
+    background-color: #ef8290;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+/* 手紙・返事一覧 */
+.letter-list,
+.sent-letter {
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 40px 20px;
+  background: #fffaf1;
+  color: #3f3028;
+}
+
+.letter-list__content,
+.sent-letter__content {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.letter-list__header,
+.sent-letter__header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.letter-list__title,
+.sent-letter__title {
+  margin: 0 0 12px;
+  font-size: 30px;
+}
+
+.letter-list__description {
+  margin: 0;
+  line-height: 1.8;
+}
+
+.letter-list__section {
+  margin-bottom: 36px;
+}
+
+.letter-list__section-title {
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #d9b98c;
+  font-size: 22px;
+}
+
+.letter-list__items {
+  display: grid;
+  gap: 12px;
+}
+
+.letter-list__item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 18px;
+  border: 1px solid #e5cfae;
+  border-radius: 14px;
+  background: rgb(255 255 255 / 75%);
+  color: #3f3028;
+  text-decoration: none;
+}
+
+.letter-list__item:hover {
+  background: #fff;
+}
+
+.letter-list__item-date,
+.sent-letter__date {
+  color: #806c5d;
+  font-size: 14px;
+}
+
+.letter-list__item-label {
+  font-weight: 700;
+}
+
+.letter-list__item-status {
+  color: #b45f6b;
+  font-size: 13px;
+}
+
+.letter-list__empty {
+  margin: 0;
+  padding: 24px;
+  border-radius: 14px;
+  background: rgb(255 255 255 / 60%);
+  text-align: center;
+}
+
+.letter-list__home-link,
+.sent-letter__back-link,
+.sent-letter__reply-link {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 360px;
+  margin: 32px auto 0;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: #ef8291;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.sent-letter__waiting {
+  margin: 28px 0 0;
+  color: #806c5d;
+  text-align: center;
+}
+
+.sent-letter__back-link--secondary {
+  margin-top: 14px;
+  border: 1px solid #b98d75;
+  background: transparent;
+  color: #654f42;
+}
+
+.sent-letter__date {
+  margin: 0 0 8px;
+}
+
+.sent-letter__body {
+  min-height: 320px;
+  padding: 28px;
+  border: 1px solid #e5cfae;
+  border-radius: 16px;
+  background: rgb(255 255 255 / 75%);
+  line-height: 2;
+}
+
+@media (max-width: 600px) {
+  .letter-list,
+  .sent-letter {
+    padding: 28px 16px;
+  }
+
+  .letter-list__item {
+    grid-template-columns: 1fr auto;
+  }
+
+  .letter-list__item-date {
+    grid-column: 1 / -1;
+  }
+
+  .sent-letter__body {
+    padding: 20px;
+  }
+}
+
+/* ボトムナビゲーション */
+.with-bottom-navigation {
+  padding-bottom: 0;
+}
+
+.with-bottom-navigation > main {
+  box-sizing: border-box;
+  padding-bottom: calc(82px + env(safe-area-inset-bottom));
+}
+
+.bottom-navigation {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  box-sizing: border-box;
+  min-height: 72px;
+  padding: 8px max(8px, env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+  border-top: 1px solid #e5cfae;
+  background-color: rgba(255, 252, 245, 0.96);
+  box-shadow: 0 -4px 14px rgb(89 63 42 / 10%);
+}
+
+.bottom-navigation__inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: min(100%, 900px);
+  min-height: 56px;
+  margin: 0 auto;
+}
+
+.bottom-navigation__item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 4px 2px;
+  color: #806c5d;
+  text-decoration: none;
+}
+
+.bottom-navigation__item--active {
+  color: #d86f7e;
+}
+
+.bottom-navigation__icon {
+  font-size: 25px;
+  line-height: 1;
+}
+
+.bottom-navigation__label {
+  overflow: hidden;
+  font-size: 11px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 日記機能の未実装案内 */
+.coming-soon {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 82px);
+  min-height: calc(100svh - 82px);
+  padding: 32px 20px;
+  background: #fffaf1;
+  color: #3f3028;
+}
+
+.coming-soon__content {
+  width: min(100%, 560px);
+  padding: 36px 24px;
+  border: 1px solid #e5cfae;
+  border-radius: 18px;
+  background: rgb(255 255 255 / 72%);
+  text-align: center;
+}
+
+.coming-soon__eyebrow {
+  margin: 0 0 10px;
+  color: #b45f6b;
+  font-weight: 700;
+}
+
+.coming-soon__title {
+  margin: 0;
+  font-size: 26px;
+}
+
+.coming-soon__message {
+  margin: 22px 0 0;
+  line-height: 1.9;
+}
+
+/* ユーザー登録画面 */
+.user-registration {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 40px 20px;
+  background:
+    radial-gradient(circle at 20% 15%, rgb(255 255 255 / 70%), transparent 32%),
+    radial-gradient(circle at 85% 85%, rgb(241 210 168 / 28%), transparent 34%),
+    #f8efe1;
+  color: #3f3028;
+}
+
+.user-registration__content {
+  box-sizing: border-box;
+  width: min(100%, 520px);
+  padding: 38px 42px;
+  border: 1px solid #dfc9aa;
+  border-radius: 20px;
+  background-color: rgb(255 252 245 / 88%);
+  box-shadow: 0 14px 36px rgb(91 67 45 / 12%);
+}
+
+.user-registration__header {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.user-registration__title {
+  margin: 0;
+  font-size: 30px;
+}
+
+.user-registration__description {
+  margin: 16px 0 0;
+  color: #705d50;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.user-registration__form {
+  display: grid;
+  gap: 20px;
+}
+
+.user-registration__errors {
+  padding: 14px 16px;
+  border: 1px solid #eaa3aa;
+  border-radius: 12px;
+  background-color: #fff2f2;
+  color: #a43f4c;
+}
+
+.user-registration__errors p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.user-registration__errors ul {
+  margin: 10px 0 0;
+  padding-left: 22px;
+}
+
+.user-registration__field {
+  display: grid;
+  gap: 8px;
+}
+
+.user-registration__label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.user-registration__input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 14px;
+  border: 1px solid #cdb89e;
+  border-radius: 10px;
+  background-color: rgb(255 255 255 / 82%);
+  color: #3f3028;
+  font: inherit;
+}
+
+.user-registration__input:focus {
+  border-color: #e67b89;
+  outline: 3px solid rgb(230 123 137 / 18%);
+}
+
+.user-registration__submit {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 999px;
+  background-color: #ef8291;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.user-registration__submit:hover {
+  background-color: #e57182;
+}
+
+.user-registration__login {
+  margin: 24px 0 0;
+  color: #705d50;
+  font-size: 14px;
+  text-align: center;
+}
+
+.user-registration__login-link {
+  color: #b65363;
+  font-weight: 700;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+  .user-registration {
+    align-items: start;
+    padding: 24px 14px;
+  }
+
+  .user-registration__content {
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
+
+  .user-registration__title {
+    font-size: 27px;
+  }
+}
