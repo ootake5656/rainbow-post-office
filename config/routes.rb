@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "static_pages#top"
+  get "diary", to: "static_pages#diary_coming_soon"
 
   resources :users, only: %i[new create]
   resources :pets, only: %i[new create] do

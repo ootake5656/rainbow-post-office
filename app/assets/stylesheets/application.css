@@ -15,7 +15,7 @@
  */
 body {
   margin: 0;
-  background-color: #eaf4f8;
+  background-color: #fffaf1;
   color: #3f352c;
 }
 
@@ -1071,4 +1071,102 @@ body {
   .sent-letter__body {
     padding: 20px;
   }
+}
+
+/* ボトムナビゲーション */
+.with-bottom-navigation {
+  padding-bottom: 0;
+}
+
+.with-bottom-navigation > main {
+  box-sizing: border-box;
+  padding-bottom: calc(82px + env(safe-area-inset-bottom));
+}
+
+.bottom-navigation {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  box-sizing: border-box;
+  min-height: 72px;
+  padding: 8px max(8px, env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+  border-top: 1px solid #e5cfae;
+  background-color: rgba(255, 252, 245, 0.96);
+  box-shadow: 0 -4px 14px rgb(89 63 42 / 10%);
+}
+
+.bottom-navigation__inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: min(100%, 900px);
+  min-height: 56px;
+  margin: 0 auto;
+}
+
+.bottom-navigation__item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 4px 2px;
+  color: #806c5d;
+  text-decoration: none;
+}
+
+.bottom-navigation__item--active {
+  color: #d86f7e;
+}
+
+.bottom-navigation__icon {
+  font-size: 25px;
+  line-height: 1;
+}
+
+.bottom-navigation__label {
+  overflow: hidden;
+  font-size: 11px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 日記機能の未実装案内 */
+.coming-soon {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 82px);
+  min-height: calc(100svh - 82px);
+  padding: 32px 20px;
+  background: #fffaf1;
+  color: #3f3028;
+}
+
+.coming-soon__content {
+  width: min(100%, 560px);
+  padding: 36px 24px;
+  border: 1px solid #e5cfae;
+  border-radius: 18px;
+  background: rgb(255 255 255 / 72%);
+  text-align: center;
+}
+
+.coming-soon__eyebrow {
+  margin: 0 0 10px;
+  color: #b45f6b;
+  font-weight: 700;
+}
+
+.coming-soon__title {
+  margin: 0;
+  font-size: 26px;
+}
+
+.coming-soon__message {
+  margin: 22px 0 0;
+  line-height: 1.9;
 }

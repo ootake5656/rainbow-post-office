@@ -38,9 +38,9 @@
                     class: "top-page__reply-notice" %>
       <% end %>
 
-      <button type="button" class="top-page__button">
-        あの子に手紙を書く
-      </button>
+      <%= link_to "あの子に手紙を書く",
+                  logged_in? ? new_letter_path : login_path,
+                  class: "top-page__button top-page__button--link" %>
 
       <% unless logged_in? %>
         <%= link_to "新規登録/ログイン",

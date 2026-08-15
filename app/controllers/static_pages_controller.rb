@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  before_action :require_login, only: :diary_coming_soon
+
   def top
     return unless logged_in?
 
@@ -9,4 +11,6 @@ class StaticPagesController < ApplicationController
       .first
     @available_reply = latest_letter&.reply
   end
+
+  def diary_coming_soon; end
 end
