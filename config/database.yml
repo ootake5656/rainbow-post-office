@@ -83,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: rainbow_post_office_production
-  username: rainbow_post_office
-  password: <%= ENV["RAINBOW_POST_OFFICE_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV["DATABASE_URL"] %>
