@@ -808,9 +808,10 @@ body {
 }
 
 .letter-delivery__home-link {
+  box-sizing: border-box;
   display: block;
-  width: 100%;
-  margin-top: auto;
+  width: min(100%, 440px);
+  margin: auto auto 0;
   padding: 16px 20px;
   border-radius: 999px;
   background-color: #ef8290;
@@ -863,6 +864,8 @@ body {
 
 .letter-delivery__content {
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   min-height: 100svh;
   padding: 72px 28px 32px;
@@ -904,19 +907,6 @@ body {
     text-align: center;
   }
 
-  .letter-delivery__home-link {
-    display: block;
-    width: 100%;
-    margin-top: auto;
-    padding: 16px 20px;
-    border-radius: 999px;
-    background-color: #ef8290;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-  }
 }
 
 /* 手紙・返事一覧 */
