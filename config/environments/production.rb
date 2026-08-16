@@ -1,7 +1,7 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.x.reply_wait_time = 30.minutes
+  config.x.reply_wait_time = 1.minute
 
   # Settings specified here will take precedence over those in config/application.rb.
 
