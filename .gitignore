@@ -36,3 +36,4 @@
 
 # Ignore macOS Finder metadata.
 .DS_Store
+/config/credentials/production.key
